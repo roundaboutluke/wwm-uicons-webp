@@ -14,7 +14,7 @@ which categories carry a black stroke, are matched to the original set.
 https://raw.githubusercontent.com/roundaboutluke/wwm-uicons-webp/main/
 ```
 
-Currently 15,681 icons across 30 categories, in lossless WebP.
+Currently 15,681 icons across 30 categories.
 
 # Using it
 Because the geometry matches the original set rather than upstream's, a client config
@@ -99,11 +99,18 @@ The stroke itself grows the sprite's alpha channel by a disc of *n* pixels, fill
 band with the outline colour, and composites the artwork back on top, so every fully
 opaque pixel survives untouched and only the antialiased rim blends.
 
-Output is **lossless WebP**. Upstream's WebP is already lossy, and re-encoding lossily
-would stack a second generation of artefacts on it — measured at up to 53 levels of
-channel error even at quality 100 — for a file barely smaller. Lossless costs about 5%
-over a lossy re-encode of the same image and introduces none. Because most categories
-scale down, the set is smaller than upstream overall.
+Icons are written with WebP's **lossless** mode, which is not the same as the icons
+being lossless. Upstream's WebP is lossy, so that quality is already spent and cannot
+be recovered here; what the lossless encode avoids is spending it *twice*. Re-encoding
+lossily was measured at up to 53 levels of channel error even at quality 100, against
+zero for a lossless encode of the same pixels, and the lossy file was barely smaller.
+
+Two things do still change the pixels regardless of the encoder, and they are the
+resize each category applies and the stroke drawn over the rim. The lossless encode
+simply means the generator adds no error of its own on top of those.
+
+Because most categories scale down, the set comes out smaller than upstream overall
+despite the lossless encode.
 
 Settings live in [`outline.config.json`](outline.config.json):
 
