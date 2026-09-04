@@ -131,10 +131,17 @@ def main(argv: list[str] | None = None) -> int:
         removed = sorted(set(previous) - set(current))
 
         dirty = bool(changed or removed)
+        # Record the commit even when nothing rendered, otherwise a poll that compares
+        # SHAs would re-run the whole sync forever on an upstream commit that changed
+        # no icons (a README edit, say).
+        commit_moved = commit not in ("(local)",) and commit != previous_state.get("commit")
         print(f"upstream {commit[:8]}: {len(current)} icons, {len(changed)} to render, {len(removed)} to delete")
         if args.dry_run:
+            mark = "~" if full else "+"   # a full rebuild re-renders, it does not add
             for rel in changed[:20]:
-                print("  +", rel)
+                print(f"  {mark}", rel)
+            if len(changed) > 20:
+                print(f"  ... and {len(changed) - 20} more")
             for rel in removed[:20]:
                 print("  -", rel)
             return 0
@@ -157,7 +164,7 @@ def main(argv: list[str] | None = None) -> int:
         # unchanged upstream leaves a clean working tree and produces no commit.
         if dirty:
             write_manifest(repo / MANIFEST, current)
-        if dirty or not (repo / STATE).exists():
+        if dirty or commit_moved or not (repo / STATE).exists():
             (repo / STATE).write_text(
                 json.dumps(
                     {
