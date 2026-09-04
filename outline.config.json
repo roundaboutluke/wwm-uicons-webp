@@ -1,0 +1,368 @@
+{
+  "upstream": "https://github.com/WatWowMap/wwm-uicons-webp.git",
+  "reference_size": 128,
+  "defaults": {
+    "enabled": true,
+    "outline": true,
+    "width": 2.0,
+    "color": "#000000",
+    "opacity": 1.0,
+    "solid_at": 128,
+    "mode": "expand",
+    "square": false,
+    "canvas": 93,
+    "content": 90,
+    "resize": null,
+    "shadow": null
+  },
+  "categories": {
+    "gym": {
+      "canvas": 96,
+      "content": 87
+    },
+    "pokestop": {
+      "canvas": 64,
+      "content": 57
+    },
+    "reward/candy": {
+      "canvas": 93,
+      "content": 87
+    },
+    "reward/xl_candy": {
+      "canvas": 93,
+      "content": 87
+    },
+    "reward/mega_resource": {
+      "canvas": 93,
+      "content": 91
+    },
+    "reward/item": {
+      "canvas": 60,
+      "content": 54
+    },
+    "reward/experience": {
+      "canvas": 60,
+      "content": 57
+    },
+    "reward/stardust": {
+      "canvas": 60,
+      "content": 52
+    },
+    "reward/unset": {
+      "canvas": 128,
+      "content": 124
+    },
+    "device": {
+      "outline": false,
+      "canvas": null,
+      "content": null,
+      "resize": 48
+    },
+    "raid/egg": {
+      "outline": false,
+      "canvas": null,
+      "content": null,
+      "resize": 70
+    },
+    "raid/egg/*_h.webp": {
+      "outline": false,
+      "canvas": null,
+      "content": null,
+      "resize": 103
+    },
+    "weather": {
+      "outline": false,
+      "canvas": 64,
+      "content": 62,
+      "resize": null
+    },
+    "spawnpoint": {
+      "outline": false,
+      "canvas": 64,
+      "content": 54,
+      "resize": null
+    },
+    "station": {
+      "outline": false,
+      "canvas": 128,
+      "content": null,
+      "resize": null
+    },
+    "type": {
+      "outline": false,
+      "canvas": 128,
+      "content": null,
+      "resize": null
+    },
+    "team": {
+      "outline": false,
+      "canvas": 600,
+      "content": null,
+      "resize": null
+    },
+    "background": {
+      "enabled": false
+    },
+    "invasion": {
+      "enabled": false
+    },
+    "nest": {
+      "enabled": false
+    },
+    "reward/0": {
+      "enabled": false
+    },
+    "reward/avatar_clothing": {
+      "enabled": false
+    },
+    "reward/incident": {
+      "enabled": false
+    },
+    "reward/level_cap": {
+      "enabled": false
+    },
+    "reward/player_attribute": {
+      "enabled": false
+    },
+    "reward/pokecoin": {
+      "enabled": false
+    },
+    "reward/pokemon_encounter": {
+      "enabled": false
+    },
+    "reward/quest": {
+      "enabled": false
+    },
+    "reward/sticker": {
+      "enabled": false
+    },
+    "misc": {
+      "outline": false,
+      "canvas": null,
+      "content": null,
+      "resize": null
+    },
+    "misc/0.webp": {
+      "outline": false,
+      "canvas": 128,
+      "content": null,
+      "resize": null
+    },
+    "misc/1500.webp": {
+      "outline": false,
+      "canvas": 128,
+      "content": null,
+      "resize": null
+    },
+    "misc/2500.webp": {
+      "outline": false,
+      "canvas": 128,
+      "content": null,
+      "resize": null
+    },
+    "misc/500.webp": {
+      "outline": false,
+      "canvas": 128,
+      "content": null,
+      "resize": null
+    },
+    "misc/9000.webp": {
+      "outline": false,
+      "canvas": 128,
+      "content": null,
+      "resize": null
+    },
+    "misc/ar.webp": {
+      "outline": false,
+      "canvas": 26,
+      "content": null,
+      "resize": null
+    },
+    "misc/badge_1.webp": {
+      "outline": false,
+      "canvas": null,
+      "content": null,
+      "resize": 128
+    },
+    "misc/badge_2.webp": {
+      "outline": false,
+      "canvas": null,
+      "content": null,
+      "resize": 128
+    },
+    "misc/badge_3.webp": {
+      "outline": false,
+      "canvas": null,
+      "content": null,
+      "resize": 128
+    },
+    "misc/battle.webp": {
+      "outline": false,
+      "canvas": 128,
+      "content": null,
+      "resize": null
+    },
+    "misc/bestbuddy.webp": {
+      "outline": false,
+      "canvas": 128,
+      "content": null,
+      "resize": null
+    },
+    "misc/egg.webp": {
+      "outline": true,
+      "canvas": 128,
+      "content": 119,
+      "resize": null
+    },
+    "misc/event_coin.webp": {
+      "outline": false,
+      "canvas": 64,
+      "content": null,
+      "resize": null
+    },
+    "misc/ex.webp": {
+      "outline": false,
+      "canvas": 32,
+      "content": null,
+      "resize": null
+    },
+    "misc/female.webp": {
+      "outline": false,
+      "canvas": 128,
+      "content": null,
+      "resize": null
+    },
+    "misc/first.webp": {
+      "outline": false,
+      "canvas": 128,
+      "content": null,
+      "resize": null
+    },
+    "misc/grass.webp": {
+      "outline": false,
+      "canvas": 128,
+      "content": null,
+      "resize": null
+    },
+    "misc/gym.webp": {
+      "outline": true,
+      "canvas": 128,
+      "content": 121,
+      "resize": null
+    },
+    "misc/invasion.webp": {
+      "outline": true,
+      "canvas": 128,
+      "content": 122,
+      "resize": null
+    },
+    "misc/lure.webp": {
+      "outline": true,
+      "canvas": 128,
+      "content": 120,
+      "resize": null
+    },
+    "misc/male.webp": {
+      "outline": false,
+      "canvas": 128,
+      "content": null,
+      "resize": null
+    },
+    "misc/mega.webp": {
+      "outline": true,
+      "canvas": 128,
+      "content": 122,
+      "resize": null
+    },
+    "misc/nest.webp": {
+      "outline": true,
+      "canvas": 128,
+      "content": 120,
+      "resize": null
+    },
+    "misc/pokemon.webp": {
+      "outline": true,
+      "canvas": 128,
+      "content": 119,
+      "resize": null
+    },
+    "misc/pokestop.webp": {
+      "outline": true,
+      "canvas": 128,
+      "content": 120,
+      "resize": null
+    },
+    "misc/portal.webp": {
+      "outline": true,
+      "canvas": 128,
+      "content": 117,
+      "resize": null
+    },
+    "misc/pvp.webp": {
+      "outline": true,
+      "canvas": 128,
+      "content": 120,
+      "resize": null
+    },
+    "misc/quest.webp": {
+      "outline": true,
+      "canvas": 128,
+      "content": 123,
+      "resize": null
+    },
+    "misc/raid.webp": {
+      "outline": true,
+      "canvas": 128,
+      "content": 118,
+      "resize": null
+    },
+    "misc/route-end.webp": {
+      "outline": true,
+      "canvas": 128,
+      "content": 122,
+      "resize": null
+    },
+    "misc/route-start.webp": {
+      "outline": true,
+      "canvas": 128,
+      "content": 122,
+      "resize": null
+    },
+    "misc/second.webp": {
+      "outline": false,
+      "canvas": 128,
+      "content": null,
+      "resize": null
+    },
+    "misc/shadow.webp": {
+      "outline": false,
+      "canvas": 128,
+      "content": null,
+      "resize": null
+    },
+    "misc/showcase.webp": {
+      "outline": true,
+      "canvas": 128,
+      "content": 126,
+      "resize": null
+    },
+    "misc/sparkles.webp": {
+      "outline": false,
+      "canvas": 128,
+      "content": null,
+      "resize": null
+    },
+    "misc/sponsor.webp": {
+      "outline": false,
+      "canvas": 128,
+      "content": null,
+      "resize": null
+    },
+    "misc/third.webp": {
+      "outline": false,
+      "canvas": 128,
+      "content": null,
+      "resize": null
+    }
+  }
+}

@@ -1,0 +1,83 @@
+name: Sync upstream icons
+
+on:
+  schedule:
+    # Daily at 05:27 UTC. Upstream pushes are sporadic; this just has to be often enough.
+    - cron: '27 5 * * *'
+  workflow_dispatch:
+    inputs:
+      full:
+        description: Re-render every icon, ignoring the manifest
+        type: boolean
+        default: false
+  push:
+    branches: [main]
+    # Touching the style or the generator means everything needs re-rendering;
+    # sync_upstream.py notices the build hash changed and rebuilds the whole set.
+    paths:
+      - outline.config.json
+      - tools/outline.py
+      - tools/sync_upstream.py
+
+concurrency:
+  group: sync-upstream
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: tools/requirements.txt
+
+      - run: pip install --disable-pip-version-check -r tools/requirements.txt
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Sync and re-render
+        id: sync
+        run: python3 tools/sync_upstream.py ${{ (inputs.full && '--full') || '' }} | tee sync.log
+
+      - name: Commit and push
+        id: commit
+        run: |
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "Already up to date with upstream ${{ steps.sync.outputs.short }}."
+            exit 0
+          fi
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+          git config user.name  'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit \
+            -m "Sync outlined icons with upstream ${{ steps.sync.outputs.short }}" \
+            -m "Rendered ${{ steps.sync.outputs.rendered }} icon(s), deleted ${{ steps.sync.outputs.deleted }}. Full rebuild: ${{ steps.sync.outputs.full }}."
+          git push
+
+      - name: Summary
+        if: always()
+        run: |
+          {
+            echo "### Upstream sync"
+            echo
+            echo "| | |"
+            echo "|---|---|"
+            echo "| Upstream commit | \`${{ steps.sync.outputs.short }}\` |"
+            echo "| Icons rendered | ${{ steps.sync.outputs.rendered || '0' }} |"
+            echo "| Icons deleted | ${{ steps.sync.outputs.deleted || '0' }} |"
+            echo "| Full rebuild | ${{ steps.sync.outputs.full || 'n/a' }} |"
+            echo "| Pushed | ${{ steps.commit.outputs.changed || 'false' }} |"
+          } >> "$GITHUB_STEP_SUMMARY"
