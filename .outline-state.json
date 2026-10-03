@@ -1,9 +1,9 @@
 {
   "upstream": "https://github.com/WatWowMap/wwm-uicons-webp.git",
-  "commit": "5a9ae30738daad42807517d98d2168a60abeb863",
-  "synced_at": "2026-10-01T15:54:24Z",
+  "commit": "392a25f387a3d2097cac740cd67fc1be3074ef9c",
+  "synced_at": "2026-10-03T00:08:40Z",
   "build_hash": "ae1367ee4d938aae",
   "config_hash": "1430ab8d76b47e77",
   "generator_hash": "2da876f95147ecca",
-  "icons": 16477
+  "icons": 16483
 }
